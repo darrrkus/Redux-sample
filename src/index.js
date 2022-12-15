@@ -1,51 +1,34 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { createStore } from 'redux';
-
-import reducer from './reducer';
-import {inc, dec, reset} from './actions';
-
-import './index.css';
-
-
-
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { createStore } from "redux";
+import reducer from "./reducer";
+import { inc, dec, reset } from "./actions";
+import "./index.css";
 
 const store = createStore(reducer);
-store.subscribe(() => {
-    document.getElementById('counter').textContent = store.getState();
-    console.log(store.getState())
-})
+const { dispatch, subscribe, getState } = store;
 
+const incDispatch = () => dispatch(inc());
+const decDispatch = () => dispatch(dec());
+const resetDispatch = () => dispatch(reset());
 
-
-document.getElementById('inc').addEventListener('click', () => {
-    store.dispatch(inc());
+subscribe(() => {
+  document.getElementById("counter").textContent = getState();
 });
 
-document.getElementById('dec').addEventListener('click', () => {
-    store.dispatch(dec())
+document.getElementById("inc").addEventListener("click", () => {
+  incDispatch();
+});
+document.getElementById("dec").addEventListener("click", () => {
+  decDispatch();
+});
+document.getElementById("res").addEventListener("click", () => {
+  resetDispatch();
 });
 
-document.getElementById('res').addEventListener('click', () => {
-    store.dispatch(reset())
-});
-// store.dispatch(inc());
-
-
-// let state = reducer(undefined, { type: 'INC' });
-// state = reducer(state, { type: 'INCBY', payload: 10 });
-// state = reducer(state, { type: 'INC' });
-// state = reducer(state, { type: 'INC' });
-// console.log(state);
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-    <React.StrictMode>
-        <>
-
-
-
-        </>
-    </React.StrictMode>
+  <React.StrictMode>
+    <></>
+  </React.StrictMode>
 );
-
