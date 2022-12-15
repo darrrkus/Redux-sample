@@ -1,10 +1,11 @@
 import React from 'react'
-import Counter from './Counter'
+// import Counter from './Counter'
+import CounterWithHooks from './CounterWithHooks'
 
 function App() {
   return (
     <>
-      <Counter/>
+      <CounterWithHooks/>
     </>
   )
 }
