@@ -14,18 +14,10 @@ subscribe(() => {
   document.getElementById("counter").textContent = getState();
 });
 
-document.getElementById("inc").addEventListener("click", () => {
-  inc();
-});
-document.getElementById("dec").addEventListener("click", () => {
-  dec();
-});
-document.getElementById("res").addEventListener("click", () => {
-  reset();
-});
-document.getElementById("inc-by").addEventListener("click", () => {
-  incBy(10);
-});
+document.getElementById("inc").addEventListener("click", inc);
+document.getElementById("dec").addEventListener("click", dec);
+document.getElementById("res").addEventListener("click", reset);
+document.getElementById("inc-by").addEventListener("click", incBy(10));
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
