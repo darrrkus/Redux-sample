@@ -1,39 +1,30 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { createStore } from "redux";
+import { createStore, bindActionCreators } from "redux";
 import reducer from "./reducer";
-import { inc, dec, reset, incBy } from "./actions";
+import * as actions from "./actions";
 import "./index.css";
 
 const store = createStore(reducer);
 const { dispatch, subscribe, getState } = store;
 
-const bindActionCreator =
-  (creator, dispatch) =>
-  (...args) => {
-    dispatch(creator(...args));
-  };
-
-const incDispatch = bindActionCreator(inc, dispatch);
-const decDispatch = bindActionCreator(dec, dispatch);
-const resetDispatch = bindActionCreator(reset, dispatch);
-const incByDispatch = bindActionCreator(incBy, dispatch);
+const { inc, dec, reset, incBy } = bindActionCreators(actions, dispatch);
 
 subscribe(() => {
   document.getElementById("counter").textContent = getState();
 });
 
 document.getElementById("inc").addEventListener("click", () => {
-  incDispatch();
+  inc();
 });
 document.getElementById("dec").addEventListener("click", () => {
-  decDispatch();
+  dec();
 });
 document.getElementById("res").addEventListener("click", () => {
-  resetDispatch();
+  reset();
 });
 document.getElementById("inc-by").addEventListener("click", () => {
-  incByDispatch(10, 5);
+  incBy(10);
 });
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
