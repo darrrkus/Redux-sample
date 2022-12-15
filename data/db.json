@@ -1,0 +1,31 @@
+{
+    "spends": [
+        {
+            "pk": 67,
+            "user": 2,
+            "account": 4,
+            "category": 26,
+            "description": "",
+            "last_updated": "2022-09-26",
+            "amount": -364
+        },
+        {
+            "pk": 68,
+            "user": 2,
+            "account": 4,
+            "category": 19,
+            "description": "25/09",
+            "last_updated": "2022-09-26",
+            "amount": -75
+        },
+        {
+            "pk": 69,
+            "user": 2,
+            "account": 4,
+            "category": 8,
+            "description": "",
+            "last_updated": "2022-09-26",
+            "amount": -156
+        }
+    ]
+}
